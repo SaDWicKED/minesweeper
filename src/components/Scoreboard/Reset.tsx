@@ -1,20 +1,12 @@
-import {FC, useState} from 'react';
+import {FC} from 'react';
 import styled from 'styled-components';
-
+import { useMouseDown } from '../../hooks/useMouseDown';
 export interface ResetProps {
   onReset: () => void;
 }
 
 export const Reset: FC<ResetProps> = ({onReset}) => {
-  const [mouseDown, setMouseDown] = useState(false);
-
-  const handleMouseDown = () => {
-    setMouseDown(true);
-  }
-  
-  const handleMouseUp = () => {
-    setMouseDown(false);
-  }
+  const [mouseDown, handleMouseDown, handleMouseUp ] = useMouseDown();
 
   return (
     <Button 
